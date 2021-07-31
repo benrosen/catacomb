@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "oubliette",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authoubliette26ee435f",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
