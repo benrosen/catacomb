@@ -1,19 +1,39 @@
-type Task
+type Room
   @model
-  @aws_iam
-  @aws_cognito_user_pools
-  @auth(
-    rules: [
-      { allow: owner, operations: [create, read, update, delete] }
-      { allow: public, provider: iam, operations: [read] }
-    ]
+  @key(
+    name: "roomsByCreatorId"
+    fields: ["creatorId"]
+    queryField: "roomsByCreatorId"
   ) {
   id: ID!
-  title: String!
-  description: String
-  status: String
+  creatorId: ID!
 }
-type PrivateNote @model @auth(rules: [{ allow: owner }]) {
-  id: ID!
-  content: String!
+
+type RoomMetaKey
+  @model
+  @auth(
+    rules: [
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
+      { allow: public, provider: iam, operations: [read] }
+      { allow: groups, groups: ["everyone"] }
+    ]
+  ) {
+  name: string!
+}
+
+type RoomMetaData
+  @model
+  @key(fields: ["roomId", "metaKey"])
+  @key(
+    name: "roomMetaDataByMetaKeyByValue"
+    fields: ["metaKey", "value"]
+    queryField: "roomMetaDataByMetaKeyByValue"
+  ) {
+  roomId: ID!
+  metaKey: string!
+  value: AWSJSON!
 }
