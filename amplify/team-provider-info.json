@@ -26,6 +26,10 @@
           "GROUP": "everyone",
           "deploymentBucketName": "amplify-oubliette-dev-133624-deployment",
           "s3Key": "amplify-builds/oubliette26ee435fPostConfirmation-796f34354f4b3842564f-build.zip"
+        },
+        "S3Triggerbf20538c": {
+          "deploymentBucketName": "amplify-oubliette-dev-133624-deployment",
+          "s3Key": "amplify-builds/S3Triggerbf20538c-4e394763386c576b6e36-build.zip"
         }
       }
     }
