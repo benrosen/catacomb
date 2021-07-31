@@ -2,75 +2,96 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePrivateNote = /* GraphQL */ `
-  subscription OnCreatePrivateNote($owner: String!) {
-    onCreatePrivateNote(owner: $owner) {
+export const onCreateRoom = /* GraphQL */ `
+  subscription OnCreateRoom {
+    onCreateRoom {
       id
-      content
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const onUpdatePrivateNote = /* GraphQL */ `
-  subscription OnUpdatePrivateNote($owner: String!) {
-    onUpdatePrivateNote(owner: $owner) {
+export const onUpdateRoom = /* GraphQL */ `
+  subscription OnUpdateRoom {
+    onUpdateRoom {
       id
-      content
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const onDeletePrivateNote = /* GraphQL */ `
-  subscription OnDeletePrivateNote($owner: String!) {
-    onDeletePrivateNote(owner: $owner) {
+export const onDeleteRoom = /* GraphQL */ `
+  subscription OnDeleteRoom {
+    onDeleteRoom {
       id
-      content
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const onCreateTask = /* GraphQL */ `
-  subscription OnCreateTask($owner: String) {
-    onCreateTask(owner: $owner) {
+export const onCreateRoomMetaKey = /* GraphQL */ `
+  subscription OnCreateRoomMetaKey {
+    onCreateRoomMetaKey {
       id
-      title
-      description
-      status
+      name
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const onUpdateTask = /* GraphQL */ `
-  subscription OnUpdateTask($owner: String) {
-    onUpdateTask(owner: $owner) {
+export const onUpdateRoomMetaKey = /* GraphQL */ `
+  subscription OnUpdateRoomMetaKey {
+    onUpdateRoomMetaKey {
       id
-      title
-      description
-      status
+      name
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const onDeleteTask = /* GraphQL */ `
-  subscription OnDeleteTask($owner: String) {
-    onDeleteTask(owner: $owner) {
+export const onDeleteRoomMetaKey = /* GraphQL */ `
+  subscription OnDeleteRoomMetaKey {
+    onDeleteRoomMetaKey {
       id
-      title
-      description
-      status
+      name
       createdAt
       updatedAt
-      owner
+    }
+  }
+`;
+export const onCreateRoomMetaData = /* GraphQL */ `
+  subscription OnCreateRoomMetaData {
+    onCreateRoomMetaData {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRoomMetaData = /* GraphQL */ `
+  subscription OnUpdateRoomMetaData {
+    onUpdateRoomMetaData {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRoomMetaData = /* GraphQL */ `
+  subscription OnDeleteRoomMetaData {
+    onDeleteRoomMetaData {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
     }
   }
 `;

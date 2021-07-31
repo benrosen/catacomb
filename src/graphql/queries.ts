@@ -2,63 +2,147 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getPrivateNote = /* GraphQL */ `
-  query GetPrivateNote($id: ID!) {
-    getPrivateNote(id: $id) {
+export const getRoom = /* GraphQL */ `
+  query GetRoom($id: ID!) {
+    getRoom(id: $id) {
       id
-      content
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const listPrivateNotes = /* GraphQL */ `
-  query ListPrivateNotes(
-    $filter: ModelPrivateNoteFilterInput
+export const listRooms = /* GraphQL */ `
+  query ListRooms(
+    $filter: ModelRoomFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPrivateNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        content
+        creatorId
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
   }
 `;
-export const getTask = /* GraphQL */ `
-  query GetTask($id: ID!) {
-    getTask(id: $id) {
-      id
-      title
-      description
-      status
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listTasks = /* GraphQL */ `
-  query ListTasks(
-    $filter: ModelTaskFilterInput
+export const roomsByCreatorId = /* GraphQL */ `
+  query RoomsByCreatorId(
+    $creatorId: ID
+    $sortDirection: ModelSortDirection
+    $filter: ModelRoomFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    roomsByCreatorId(
+      creatorId: $creatorId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
-        title
-        description
-        status
+        creatorId
         createdAt
         updatedAt
-        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getRoomMetaKey = /* GraphQL */ `
+  query GetRoomMetaKey($id: ID!) {
+    getRoomMetaKey(id: $id) {
+      id
+      name
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listRoomMetaKeys = /* GraphQL */ `
+  query ListRoomMetaKeys(
+    $filter: ModelRoomMetaKeyFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRoomMetaKeys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getRoomMetaData = /* GraphQL */ `
+  query GetRoomMetaData($roomId: ID!, $metaKey: String!) {
+    getRoomMetaData(roomId: $roomId, metaKey: $metaKey) {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listRoomMetaData = /* GraphQL */ `
+  query ListRoomMetaData(
+    $roomId: ID
+    $metaKey: ModelStringKeyConditionInput
+    $filter: ModelRoomMetaDataFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listRoomMetaData(
+      roomId: $roomId
+      metaKey: $metaKey
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        roomId
+        metaKey
+        value
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const roomMetaDataByMetaKeyByValue = /* GraphQL */ `
+  query RoomMetaDataByMetaKeyByValue(
+    $metaKey: String
+    $value: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelRoomMetaDataFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    roomMetaDataByMetaKeyByValue(
+      metaKey: $metaKey
+      value: $value
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        roomId
+        metaKey
+        value
+        createdAt
+        updatedAt
       }
       nextToken
     }

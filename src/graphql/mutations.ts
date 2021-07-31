@@ -2,93 +2,123 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTask = /* GraphQL */ `
-  mutation CreateTask(
-    $input: CreateTaskInput!
-    $condition: ModelTaskConditionInput
+export const createRoom = /* GraphQL */ `
+  mutation CreateRoom(
+    $input: CreateRoomInput!
+    $condition: ModelRoomConditionInput
   ) {
-    createTask(input: $input, condition: $condition) {
+    createRoom(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const updateTask = /* GraphQL */ `
-  mutation UpdateTask(
-    $input: UpdateTaskInput!
-    $condition: ModelTaskConditionInput
+export const updateRoom = /* GraphQL */ `
+  mutation UpdateRoom(
+    $input: UpdateRoomInput!
+    $condition: ModelRoomConditionInput
   ) {
-    updateTask(input: $input, condition: $condition) {
+    updateRoom(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const deleteTask = /* GraphQL */ `
-  mutation DeleteTask(
-    $input: DeleteTaskInput!
-    $condition: ModelTaskConditionInput
+export const deleteRoom = /* GraphQL */ `
+  mutation DeleteRoom(
+    $input: DeleteRoomInput!
+    $condition: ModelRoomConditionInput
   ) {
-    deleteTask(input: $input, condition: $condition) {
+    deleteRoom(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      creatorId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const createPrivateNote = /* GraphQL */ `
-  mutation CreatePrivateNote(
-    $input: CreatePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const createRoomMetaKey = /* GraphQL */ `
+  mutation CreateRoomMetaKey(
+    $input: CreateRoomMetaKeyInput!
+    $condition: ModelRoomMetaKeyConditionInput
   ) {
-    createPrivateNote(input: $input, condition: $condition) {
+    createRoomMetaKey(input: $input, condition: $condition) {
       id
-      content
+      name
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const updatePrivateNote = /* GraphQL */ `
-  mutation UpdatePrivateNote(
-    $input: UpdatePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const updateRoomMetaKey = /* GraphQL */ `
+  mutation UpdateRoomMetaKey(
+    $input: UpdateRoomMetaKeyInput!
+    $condition: ModelRoomMetaKeyConditionInput
   ) {
-    updatePrivateNote(input: $input, condition: $condition) {
+    updateRoomMetaKey(input: $input, condition: $condition) {
       id
-      content
+      name
       createdAt
       updatedAt
-      owner
     }
   }
 `;
-export const deletePrivateNote = /* GraphQL */ `
-  mutation DeletePrivateNote(
-    $input: DeletePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const deleteRoomMetaKey = /* GraphQL */ `
+  mutation DeleteRoomMetaKey(
+    $input: DeleteRoomMetaKeyInput!
+    $condition: ModelRoomMetaKeyConditionInput
   ) {
-    deletePrivateNote(input: $input, condition: $condition) {
+    deleteRoomMetaKey(input: $input, condition: $condition) {
       id
-      content
+      name
       createdAt
       updatedAt
-      owner
+    }
+  }
+`;
+export const createRoomMetaData = /* GraphQL */ `
+  mutation CreateRoomMetaData(
+    $input: CreateRoomMetaDataInput!
+    $condition: ModelRoomMetaDataConditionInput
+  ) {
+    createRoomMetaData(input: $input, condition: $condition) {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateRoomMetaData = /* GraphQL */ `
+  mutation UpdateRoomMetaData(
+    $input: UpdateRoomMetaDataInput!
+    $condition: ModelRoomMetaDataConditionInput
+  ) {
+    updateRoomMetaData(input: $input, condition: $condition) {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteRoomMetaData = /* GraphQL */ `
+  mutation DeleteRoomMetaData(
+    $input: DeleteRoomMetaDataInput!
+    $condition: ModelRoomMetaDataConditionInput
+  ) {
+    deleteRoomMetaData(input: $input, condition: $condition) {
+      roomId
+      metaKey
+      value
+      createdAt
+      updatedAt
     }
   }
 `;

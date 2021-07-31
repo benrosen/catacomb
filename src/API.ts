@@ -2,23 +2,19 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateTaskInput = {
+export type CreateRoomInput = {
   id?: string | null,
-  title: string,
-  description?: string | null,
-  status?: string | null,
+  creatorId: string,
 };
 
-export type ModelTaskConditionInput = {
-  title?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  status?: ModelStringInput | null,
-  and?: Array< ModelTaskConditionInput | null > | null,
-  or?: Array< ModelTaskConditionInput | null > | null,
-  not?: ModelTaskConditionInput | null,
+export type ModelRoomConditionInput = {
+  creatorId?: ModelIDInput | null,
+  and?: Array< ModelRoomConditionInput | null > | null,
+  or?: Array< ModelRoomConditionInput | null > | null,
+  not?: ModelRoomConditionInput | null,
 };
 
-export type ModelStringInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -58,67 +54,36 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Task = {
-  __typename: "Task",
+export type Room = {
+  __typename: "Room",
   id: string,
-  title: string,
-  description?: string | null,
-  status?: string | null,
+  creatorId: string,
   createdAt: string,
   updatedAt: string,
-  owner?: string | null,
 };
 
-export type UpdateTaskInput = {
+export type UpdateRoomInput = {
   id: string,
-  title?: string | null,
-  description?: string | null,
-  status?: string | null,
+  creatorId?: string | null,
 };
 
-export type DeleteTaskInput = {
+export type DeleteRoomInput = {
   id: string,
 };
 
-export type CreatePrivateNoteInput = {
+export type CreateRoomMetaKeyInput = {
   id?: string | null,
-  content: string,
+  name: string,
 };
 
-export type ModelPrivateNoteConditionInput = {
-  content?: ModelStringInput | null,
-  and?: Array< ModelPrivateNoteConditionInput | null > | null,
-  or?: Array< ModelPrivateNoteConditionInput | null > | null,
-  not?: ModelPrivateNoteConditionInput | null,
+export type ModelRoomMetaKeyConditionInput = {
+  name?: ModelStringInput | null,
+  and?: Array< ModelRoomMetaKeyConditionInput | null > | null,
+  or?: Array< ModelRoomMetaKeyConditionInput | null > | null,
+  not?: ModelRoomMetaKeyConditionInput | null,
 };
 
-export type PrivateNote = {
-  __typename: "PrivateNote",
-  id: string,
-  content: string,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
-export type UpdatePrivateNoteInput = {
-  id: string,
-  content?: string | null,
-};
-
-export type DeletePrivateNoteInput = {
-  id: string,
-};
-
-export type ModelPrivateNoteFilterInput = {
-  id?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  and?: Array< ModelPrivateNoteFilterInput | null > | null,
-  or?: Array< ModelPrivateNoteFilterInput | null > | null,
-  not?: ModelPrivateNoteFilterInput | null,
-};
-
-export type ModelIDInput = {
+export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -134,298 +99,494 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type ModelPrivateNoteConnection = {
-  __typename: "ModelPrivateNoteConnection",
-  items?:  Array<PrivateNote | null > | null,
-  nextToken?: string | null,
+export type RoomMetaKey = {
+  __typename: "RoomMetaKey",
+  id: string,
+  name: string,
+  createdAt: string,
+  updatedAt: string,
 };
 
-export type ModelTaskFilterInput = {
+export type UpdateRoomMetaKeyInput = {
+  name?: string | null,
+};
+
+export type DeleteRoomMetaKeyInput = {
+  id: string,
+};
+
+export type CreateRoomMetaDataInput = {
+  roomId: string,
+  metaKey: string,
+  value: string,
+};
+
+export type ModelRoomMetaDataConditionInput = {
+  value?: ModelStringInput | null,
+  and?: Array< ModelRoomMetaDataConditionInput | null > | null,
+  or?: Array< ModelRoomMetaDataConditionInput | null > | null,
+  not?: ModelRoomMetaDataConditionInput | null,
+};
+
+export type RoomMetaData = {
+  __typename: "RoomMetaData",
+  roomId: string,
+  metaKey: string,
+  value: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateRoomMetaDataInput = {
+  roomId: string,
+  metaKey: string,
+  value?: string | null,
+};
+
+export type DeleteRoomMetaDataInput = {
+  roomId: string,
+  metaKey: string,
+};
+
+export type ModelRoomFilterInput = {
   id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  status?: ModelStringInput | null,
-  and?: Array< ModelTaskFilterInput | null > | null,
-  or?: Array< ModelTaskFilterInput | null > | null,
-  not?: ModelTaskFilterInput | null,
+  creatorId?: ModelIDInput | null,
+  and?: Array< ModelRoomFilterInput | null > | null,
+  or?: Array< ModelRoomFilterInput | null > | null,
+  not?: ModelRoomFilterInput | null,
 };
 
-export type ModelTaskConnection = {
-  __typename: "ModelTaskConnection",
-  items?:  Array<Task | null > | null,
+export type ModelRoomConnection = {
+  __typename: "ModelRoomConnection",
+  items?:  Array<Room | null > | null,
   nextToken?: string | null,
 };
 
-export type CreateTaskMutationVariables = {
-  input: CreateTaskInput,
-  condition?: ModelTaskConditionInput | null,
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
+export type ModelRoomMetaKeyFilterInput = {
+  name?: ModelStringInput | null,
+  and?: Array< ModelRoomMetaKeyFilterInput | null > | null,
+  or?: Array< ModelRoomMetaKeyFilterInput | null > | null,
+  not?: ModelRoomMetaKeyFilterInput | null,
 };
 
-export type CreateTaskMutation = {
-  createTask?:  {
-    __typename: "Task",
+export type ModelRoomMetaKeyConnection = {
+  __typename: "ModelRoomMetaKeyConnection",
+  items?:  Array<RoomMetaKey | null > | null,
+  nextToken?: string | null,
+};
+
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
+export type ModelRoomMetaDataFilterInput = {
+  roomId?: ModelIDInput | null,
+  metaKey?: ModelStringInput | null,
+  value?: ModelStringInput | null,
+  and?: Array< ModelRoomMetaDataFilterInput | null > | null,
+  or?: Array< ModelRoomMetaDataFilterInput | null > | null,
+  not?: ModelRoomMetaDataFilterInput | null,
+};
+
+export type ModelRoomMetaDataConnection = {
+  __typename: "ModelRoomMetaDataConnection",
+  items?:  Array<RoomMetaData | null > | null,
+  nextToken?: string | null,
+};
+
+export type CreateRoomMutationVariables = {
+  input: CreateRoomInput,
+  condition?: ModelRoomConditionInput | null,
+};
+
+export type CreateRoomMutation = {
+  createRoom?:  {
+    __typename: "Room",
     id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
+    creatorId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type UpdateTaskMutationVariables = {
-  input: UpdateTaskInput,
-  condition?: ModelTaskConditionInput | null,
+export type UpdateRoomMutationVariables = {
+  input: UpdateRoomInput,
+  condition?: ModelRoomConditionInput | null,
 };
 
-export type UpdateTaskMutation = {
-  updateTask?:  {
-    __typename: "Task",
+export type UpdateRoomMutation = {
+  updateRoom?:  {
+    __typename: "Room",
     id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
+    creatorId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type DeleteTaskMutationVariables = {
-  input: DeleteTaskInput,
-  condition?: ModelTaskConditionInput | null,
+export type DeleteRoomMutationVariables = {
+  input: DeleteRoomInput,
+  condition?: ModelRoomConditionInput | null,
 };
 
-export type DeleteTaskMutation = {
-  deleteTask?:  {
-    __typename: "Task",
+export type DeleteRoomMutation = {
+  deleteRoom?:  {
+    __typename: "Room",
     id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
+    creatorId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type CreatePrivateNoteMutationVariables = {
-  input: CreatePrivateNoteInput,
-  condition?: ModelPrivateNoteConditionInput | null,
+export type CreateRoomMetaKeyMutationVariables = {
+  input: CreateRoomMetaKeyInput,
+  condition?: ModelRoomMetaKeyConditionInput | null,
 };
 
-export type CreatePrivateNoteMutation = {
-  createPrivateNote?:  {
-    __typename: "PrivateNote",
+export type CreateRoomMetaKeyMutation = {
+  createRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
     id: string,
-    content: string,
+    name: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type UpdatePrivateNoteMutationVariables = {
-  input: UpdatePrivateNoteInput,
-  condition?: ModelPrivateNoteConditionInput | null,
+export type UpdateRoomMetaKeyMutationVariables = {
+  input: UpdateRoomMetaKeyInput,
+  condition?: ModelRoomMetaKeyConditionInput | null,
 };
 
-export type UpdatePrivateNoteMutation = {
-  updatePrivateNote?:  {
-    __typename: "PrivateNote",
+export type UpdateRoomMetaKeyMutation = {
+  updateRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
     id: string,
-    content: string,
+    name: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type DeletePrivateNoteMutationVariables = {
-  input: DeletePrivateNoteInput,
-  condition?: ModelPrivateNoteConditionInput | null,
+export type DeleteRoomMetaKeyMutationVariables = {
+  input: DeleteRoomMetaKeyInput,
+  condition?: ModelRoomMetaKeyConditionInput | null,
 };
 
-export type DeletePrivateNoteMutation = {
-  deletePrivateNote?:  {
-    __typename: "PrivateNote",
+export type DeleteRoomMetaKeyMutation = {
+  deleteRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
     id: string,
-    content: string,
+    name: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type GetPrivateNoteQueryVariables = {
+export type CreateRoomMetaDataMutationVariables = {
+  input: CreateRoomMetaDataInput,
+  condition?: ModelRoomMetaDataConditionInput | null,
+};
+
+export type CreateRoomMetaDataMutation = {
+  createRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateRoomMetaDataMutationVariables = {
+  input: UpdateRoomMetaDataInput,
+  condition?: ModelRoomMetaDataConditionInput | null,
+};
+
+export type UpdateRoomMetaDataMutation = {
+  updateRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteRoomMetaDataMutationVariables = {
+  input: DeleteRoomMetaDataInput,
+  condition?: ModelRoomMetaDataConditionInput | null,
+};
+
+export type DeleteRoomMetaDataMutation = {
+  deleteRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type GetRoomQueryVariables = {
   id: string,
 };
 
-export type GetPrivateNoteQuery = {
-  getPrivateNote?:  {
-    __typename: "PrivateNote",
+export type GetRoomQuery = {
+  getRoom?:  {
+    __typename: "Room",
     id: string,
-    content: string,
+    creatorId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type ListPrivateNotesQueryVariables = {
-  filter?: ModelPrivateNoteFilterInput | null,
+export type ListRoomsQueryVariables = {
+  filter?: ModelRoomFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListPrivateNotesQuery = {
-  listPrivateNotes?:  {
-    __typename: "ModelPrivateNoteConnection",
+export type ListRoomsQuery = {
+  listRooms?:  {
+    __typename: "ModelRoomConnection",
     items?:  Array< {
-      __typename: "PrivateNote",
+      __typename: "Room",
       id: string,
-      content: string,
+      creatorId: string,
       createdAt: string,
       updatedAt: string,
-      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
 };
 
-export type GetTaskQueryVariables = {
-  id: string,
-};
-
-export type GetTaskQuery = {
-  getTask?:  {
-    __typename: "Task",
-    id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
-  } | null,
-};
-
-export type ListTasksQueryVariables = {
-  filter?: ModelTaskFilterInput | null,
+export type RoomsByCreatorIdQueryVariables = {
+  creatorId?: string | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelRoomFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListTasksQuery = {
-  listTasks?:  {
-    __typename: "ModelTaskConnection",
+export type RoomsByCreatorIdQuery = {
+  roomsByCreatorId?:  {
+    __typename: "ModelRoomConnection",
     items?:  Array< {
-      __typename: "Task",
+      __typename: "Room",
       id: string,
-      title: string,
-      description?: string | null,
-      status?: string | null,
+      creatorId: string,
       createdAt: string,
       updatedAt: string,
-      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
 };
 
-export type OnCreatePrivateNoteSubscriptionVariables = {
-  owner: string,
+export type GetRoomMetaKeyQueryVariables = {
+  id: string,
 };
 
-export type OnCreatePrivateNoteSubscription = {
-  onCreatePrivateNote?:  {
-    __typename: "PrivateNote",
+export type GetRoomMetaKeyQuery = {
+  getRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
     id: string,
-    content: string,
+    name: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type OnUpdatePrivateNoteSubscriptionVariables = {
-  owner: string,
+export type ListRoomMetaKeysQueryVariables = {
+  filter?: ModelRoomMetaKeyFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
 };
 
-export type OnUpdatePrivateNoteSubscription = {
-  onUpdatePrivateNote?:  {
-    __typename: "PrivateNote",
-    id: string,
-    content: string,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
+export type ListRoomMetaKeysQuery = {
+  listRoomMetaKeys?:  {
+    __typename: "ModelRoomMetaKeyConnection",
+    items?:  Array< {
+      __typename: "RoomMetaKey",
+      id: string,
+      name: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
-export type OnDeletePrivateNoteSubscriptionVariables = {
-  owner: string,
+export type GetRoomMetaDataQueryVariables = {
+  roomId: string,
+  metaKey: string,
 };
 
-export type OnDeletePrivateNoteSubscription = {
-  onDeletePrivateNote?:  {
-    __typename: "PrivateNote",
-    id: string,
-    content: string,
+export type GetRoomMetaDataQuery = {
+  getRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
-export type OnCreateTaskSubscriptionVariables = {
-  owner?: string | null,
+export type ListRoomMetaDataQueryVariables = {
+  roomId?: string | null,
+  metaKey?: ModelStringKeyConditionInput | null,
+  filter?: ModelRoomMetaDataFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
-export type OnCreateTaskSubscription = {
-  onCreateTask?:  {
-    __typename: "Task",
-    id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
+export type ListRoomMetaDataQuery = {
+  listRoomMetaData?:  {
+    __typename: "ModelRoomMetaDataConnection",
+    items?:  Array< {
+      __typename: "RoomMetaData",
+      roomId: string,
+      metaKey: string,
+      value: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
-export type OnUpdateTaskSubscriptionVariables = {
-  owner?: string | null,
+export type RoomMetaDataByMetaKeyByValueQueryVariables = {
+  metaKey?: string | null,
+  value?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelRoomMetaDataFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
 };
 
-export type OnUpdateTaskSubscription = {
-  onUpdateTask?:  {
-    __typename: "Task",
-    id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
-    createdAt: string,
-    updatedAt: string,
-    owner?: string | null,
+export type RoomMetaDataByMetaKeyByValueQuery = {
+  roomMetaDataByMetaKeyByValue?:  {
+    __typename: "ModelRoomMetaDataConnection",
+    items?:  Array< {
+      __typename: "RoomMetaData",
+      roomId: string,
+      metaKey: string,
+      value: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
-export type OnDeleteTaskSubscriptionVariables = {
-  owner?: string | null,
-};
-
-export type OnDeleteTaskSubscription = {
-  onDeleteTask?:  {
-    __typename: "Task",
+export type OnCreateRoomSubscription = {
+  onCreateRoom?:  {
+    __typename: "Room",
     id: string,
-    title: string,
-    description?: string | null,
-    status?: string | null,
+    creatorId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
+  } | null,
+};
+
+export type OnUpdateRoomSubscription = {
+  onUpdateRoom?:  {
+    __typename: "Room",
+    id: string,
+    creatorId: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteRoomSubscription = {
+  onDeleteRoom?:  {
+    __typename: "Room",
+    id: string,
+    creatorId: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateRoomMetaKeySubscription = {
+  onCreateRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
+    id: string,
+    name: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateRoomMetaKeySubscription = {
+  onUpdateRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
+    id: string,
+    name: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteRoomMetaKeySubscription = {
+  onDeleteRoomMetaKey?:  {
+    __typename: "RoomMetaKey",
+    id: string,
+    name: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateRoomMetaDataSubscription = {
+  onCreateRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateRoomMetaDataSubscription = {
+  onUpdateRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteRoomMetaDataSubscription = {
+  onDeleteRoomMetaData?:  {
+    __typename: "RoomMetaData",
+    roomId: string,
+    metaKey: string,
+    value: string,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
