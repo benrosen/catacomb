@@ -33,7 +33,7 @@ type RoomMetaKey
       { allow: groups, groups: ["everyone"] }
     ]
   ) {
-  name: string!
+  name: String!
 }
 
 type RoomMetaData
@@ -56,6 +56,6 @@ type RoomMetaData
     queryField: "roomMetaDataByMetaKeyByValue"
   ) {
   roomId: ID!
-  metaKey: string!
+  metaKey: String!
   value: AWSJSON!
 }
