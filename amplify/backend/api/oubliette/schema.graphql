@@ -1,5 +1,16 @@
 type Room
   @model
+  @auth(
+    rules: [
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
+      { allow: public, provider: iam, operations: [read] }
+      { allow: groups, groups: ["everyone"] }
+    ]
+  )
   @key(
     name: "roomsByCreatorId"
     fields: ["creatorId"]
@@ -27,6 +38,17 @@ type RoomMetaKey
 
 type RoomMetaData
   @model
+  @auth(
+    rules: [
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
+      { allow: public, provider: iam, operations: [read] }
+      { allow: groups, groups: ["everyone"] }
+    ]
+  )
   @key(fields: ["roomId", "metaKey"])
   @key(
     name: "roomMetaDataByMetaKeyByValue"
