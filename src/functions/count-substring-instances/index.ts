@@ -1,0 +1,1 @@
+export { countSubstringInstances as default } from "./count-substring-instances";
