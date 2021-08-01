@@ -1,0 +1,1 @@
+export { isValidMobString as default } from "./is-valid-mob-string";
