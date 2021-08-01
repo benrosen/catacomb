@@ -1,0 +1,1 @@
+export { isValidTileString as default } from "./is-valid-tile-string";
