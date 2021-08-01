@@ -1,4 +1,4 @@
-import { Item } from "enums/item";
+import { ItemCode } from "enums/item-code";
 
 /**
  * Validate an Item string.
@@ -8,7 +8,7 @@ import { Item } from "enums/item";
  */
 export const isValidItemString = (str: string): boolean => {
   return str
-    ? Object.values(Item).some((validItemString: string) => {
+    ? Object.values(ItemCode).some((validItemString: string) => {
         return str === validItemString;
       })
     : true;

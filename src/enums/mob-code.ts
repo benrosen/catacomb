@@ -1,4 +1,4 @@
-export enum Mob {
+export enum MobCode {
   EMPLACED = "e",
   LOITERING = "l",
   PATROL = "p",

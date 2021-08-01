@@ -1,4 +1,4 @@
-import { Tile } from "enums/tile";
+import { TileCode } from "enums/tile-code";
 import isValidTileString from "./index";
 
 describe(`The${isValidTileString.name} function`, () => {
@@ -11,7 +11,7 @@ describe(`The${isValidTileString.name} function`, () => {
   });
   describe(`should return a truthy value`, () => {
     test(`if provided with a valid Tile code.`, () => {
-      Object.values(Tile).forEach((validTileString) => {
+      Object.values(TileCode).forEach((validTileString) => {
         expect(isValidTileString(validTileString)).toBeTruthy();
       });
     });

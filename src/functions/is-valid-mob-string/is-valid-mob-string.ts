@@ -1,4 +1,4 @@
-import { Mob } from "enums/mob";
+import { MobCode } from "enums/mob-code";
 
 /**
  * Validate a Mob string.
@@ -8,7 +8,7 @@ import { Mob } from "enums/mob";
  */
 export const isValidMobString = (str: string): boolean => {
   return str
-    ? Object.values(Mob).some((validMobString: string) => {
+    ? Object.values(MobCode).some((validMobString: string) => {
         return str === validMobString;
       })
     : true;

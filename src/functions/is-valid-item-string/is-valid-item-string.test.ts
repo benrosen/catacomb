@@ -1,4 +1,4 @@
-import { Item } from "enums/item";
+import { ItemCode } from "enums/item-code";
 import isValidItemString from "./index";
 
 describe(`The ${isValidItemString.name} function`, () => {
@@ -11,7 +11,7 @@ describe(`The ${isValidItemString.name} function`, () => {
   });
   describe(`should return a truthy value`, () => {
     test(`if provided with a valid Item code.`, () => {
-      Object.values(Item).forEach((validItemString) => {
+      Object.values(ItemCode).forEach((validItemString) => {
         expect(isValidItemString(validItemString)).toBeTruthy();
       });
     });

@@ -1,4 +1,4 @@
-import { Tile } from "enums/tile";
+import { TileCode } from "enums/tile-code";
 
 /**
  * Validate a Tile string.
@@ -7,7 +7,7 @@ import { Tile } from "enums/tile";
  * @returns True if the given string is a valid Tile string.
  */
 export const isValidTileString = (str: string): boolean => {
-  return Object.values(Tile).some((validTileString: string) => {
+  return Object.values(TileCode).some((validTileString: string) => {
     return str === validTileString;
   });
 };

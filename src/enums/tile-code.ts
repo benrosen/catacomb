@@ -1,4 +1,4 @@
-export enum Tile {
+export enum TileCode {
   FLOOR = "f",
   WALL = "w",
 }

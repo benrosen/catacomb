@@ -1,4 +1,4 @@
-import { Mob } from "enums/mob";
+import { MobCode } from "enums/mob-code";
 import isValidMobString from "./index";
 
 describe(`The${isValidMobString.name} function`, () => {
@@ -11,7 +11,7 @@ describe(`The${isValidMobString.name} function`, () => {
   });
   describe(`should return a truthy value`, () => {
     test(`if provided with a valid Mob code.`, () => {
-      Object.values(Mob).forEach((validMobString) => {
+      Object.values(MobCode).forEach((validMobString) => {
         expect(isValidMobString(validMobString)).toBeTruthy();
       });
     });
