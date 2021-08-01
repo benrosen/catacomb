@@ -1,14 +1,103 @@
 {
-  "python.formatting.provider": "black",
   "editor.formatOnSave": true,
   "[javascriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "module-templates.engine": "handlebars",
+  "module-templates.templates": {
+    "component": {
+      "displayName": "Component",
+      "defaultPath": "src/components",
+      "files": [
+        {
+          "name": "index.ts",
+          "content": [
+            "export { {{pascal name}} as default } from \"./{{kebab name}}\""
+          ]
+        },
+        {
+          "name": "{{kebab name}}.tsx",
+          "content": [
+            "import styles from \"./{{kebab name}}.module.css\"",
+            "import { {{pascal name}}Props } from \"./{{kebab name}}.props\"",
+            "",
+            "export const {{pascal name}} = (props: {{pascal name}}Props): JSX.Element => {",
+            "  return <div className={ styles.{{camel name}} } />;",
+            "};",
+            ""
+          ]
+        },
+        {
+          "name": "{{kebab name}}.module.css",
+          "content": [".{{camel name}} {}"]
+        },
+        {
+          "name": "{{kebab name}}.props.ts",
+          "content": ["export type {{pascal name}}Props = {};"]
+        },
+        {
+          "name": "{{kebab name}}.test.tsx",
+          "content": [
+            "import { render, screen } from \"@testing-library/react\";",
+            "",
+            "import {{pascal name}} from \"./index\"",
+            "import { {{pascal name}}Props } from \"./{{kebab name}}.props\"",
+            "",
+            "describe(`The${ {{pascal name}}.name} component`, () => {",
+            "  it(\"renders a component with the {{role}} role.\", () => {",
+            "    const props: {{pascal name}}Props = {};",
+            "    render(<{{pascal name}} {...props} />);",
+            "    const element = screen.getByRole(\"{{role}}\");",
+            "    expect(element).toBeInTheDocument();",
+            "  });",
+            "});",
+            ""
+          ]
+        }
+      ],
+      "folder": "{{kebab name}}",
+      "questions": {
+        "name": "Component name",
+        "role": "A11y role"
+      }
+    },
+    "function": {
+      "displayName": "Function",
+      "defaultPath": "src/functions",
+      "files": [
+        {
+          "name": "index.ts",
+          "content": [
+            "export { {{camel name}} as default } from \"./{{kebab name}}\";"
+          ]
+        },
+        {
+          "name": "{{kebab name}}.ts",
+          "content": ["export const {{camel name}} = () => {};", ""]
+        },
+        {
+          "name": "{{kebab name}}.test.ts",
+          "content": [
+            "import {{camel name}} from \"./index\";",
+            "",
+            "describe(`The${ {{camel name}}.name} function`, () => {",
+            "  it(``, () => {});",
+            "});",
+            ""
+          ]
+        }
+      ],
+      "folder": "{{kebab name}}",
+      "questions": {
+        "name": "Function name"
+      }
+    }
+  }
 }
